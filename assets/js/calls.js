@@ -1,22 +1,50 @@
-fetch("./assets/php/bestScorersPerYear.php")
-  .then((response) => response.json())
-  .then((json) => {
-    console.log(json);
-    console.log(json[0]);
+document.addEventListener("DOMContentLoaded", function () {
 
+  call(2016);
+
+  function call(year) {
+    let url = "./assets/php/bestScorersPerYear.php?year="+year;
+    console.log(url); 
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        createChart(json);
+      });
+  }
+
+  function openFilter() {
+    let filter = document.getElementById("filter");
+    let filterItems = document.getElementById("filter-items");
+    if (filter.style.opacity == 0) {
+      console.log("displaying filter");
+      filter.style.opacity = 1;
+      filter.style.height = "40px";
+    } else {
+      console.log("hiding filter");
+      filter.style.opacity = 0;
+      filter.style.height = "0px";
+    }
+  }
+
+  document
+    .getElementById("filter-items")
+    .addEventListener("change", function (e) {
+      console.log(e.target.value);
+      call(e.target.value);
+    });
+
+  function createChart(json) {
     Highcharts.chart("container", {
       chart: {
         zoomType: "xy",
       },
       title: {
         text: "Top 10 Scorers per Year",
-        align: "left",
+        align: "center",
       },
       subtitle: {
-        text:
-          "Source: " +
-          '<a href="https://www.yr.no/nb/historikk/graf/5-97251/Norge/Troms%20og%20Finnmark/Karasjok/Karasjok?q=2021"' +
-          'target="_blank">YR</a>',
+        text: "Year 2018",
+        align: "center",
       },
       xAxis: [
         {
@@ -72,10 +100,10 @@ fetch("./assets/php/bestScorersPerYear.php")
         shared: true,
       },
       legend: {
-        align: "left",
-        x: 80,
+        align: "center",
+        x: 0,
         verticalAlign: "top",
-        y: 80,
+        y: 60,
         floating: true,
         backgroundColor:
           Highcharts.defaultOptions.legend.backgroundColor || // theme
@@ -98,9 +126,6 @@ fetch("./assets/php/bestScorersPerYear.php")
             parseInt(json[8].Shots),
             parseInt(json[9].Shots),
           ],
-          tooltip: {
-            valueSuffix: " mm",
-          },
         },
         {
           name: "Goals",
@@ -117,12 +142,36 @@ fetch("./assets/php/bestScorersPerYear.php")
             parseInt(json[8].Goals),
             parseInt(json[9].Goals),
           ],
-          tooltip: {
-            valueSuffix: "°C",
-          },
         },
       ],
+      exporting: {
+        buttons: [
+          {
+            text: "",
+            symbol: "url(./assets/img/gear.svg)",
+            symbolX: 19.5,
+            symbolY: 18.5,
+            titleKey: "settings",
+            onclick: function () {
+              openFilter();
+            },
+            theme: {
+              "stroke-width": 1,
+              stroke: "transparent",
+              r: 5,
+              states: {
+                hover: {
+                  fill: "#7cb6ec",
+                },
+                select: {
+                  stroke: "#039",
+                  fill: "#a4edba",
+                },
+              },
+            },
+          },
+        ],
+      },
     });
-  });
-
-console.log("Hello World");
+  }
+});
