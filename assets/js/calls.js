@@ -12,17 +12,26 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
+  var isFilterOpened = false;
   function openFilter() {
     let filter = document.getElementById("filter");
     let filterItems = document.getElementById("filter-items");
-    if (filter.style.opacity == 0) {
+
+    if (!isFilterOpened) {
       console.log("displaying filter");
-      filter.style.opacity = 1;
       filter.style.height = "40px";
+      filter.style.transform = 'translateY(34px);';
+      /*filterItems.style.opacity = 1;*/
+      filterItems.style.transform = 'translate(0px, 0px)';
+      isFilterOpened=true;
     } else {
       console.log("hiding filter");
-      filter.style.opacity = 0;
       filter.style.height = "0px";
+      filter.style.transform = 'translateY(-34px);';
+      /*filterItems.style.opacity = 0;*/
+      filterItems.style.transform= 'translate(0px, -39px)';
+      console.log("filter items transform: "+filterItems.style.transform);
+      isFilterOpened=false;
     }
   }
 
