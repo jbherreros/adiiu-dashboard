@@ -1,12 +1,11 @@
-.row .margin {
-    margin-top: 500px;
-}
-
+/* Header style*/
 header nav{
     position: absolute;
     z-index: 1;
 }
 
+
+/* Filter style */
 #filter{
     position: relative;
     width: 100%;
@@ -17,18 +16,20 @@ header nav{
 
 #filter-items{
     position: relative;
-    width: 80%;
-    transform: translateY(-34px);/* Should be 0 */
-    padding-top: 5px;
+    justify-content: center;
+    transform: translateY(-37px);/* Should be 0 */
+    padding-top: 3px;
     transition: all .2s ease-in-out;
     display: flex;
 }
 
-#filter #filter-items select{
-    width: 30%;
+#filter #filter-items label{
+    margin: 5px;
+    margin-right: 5px;
+    margin-left: 15px;
 }
 
-#filter #filter-items label{
-    margin: 2px;
-    margin-right: 5px;
+.form-control-sm{
+    border: #ced4da !important;
+    width: 50px;
 }
