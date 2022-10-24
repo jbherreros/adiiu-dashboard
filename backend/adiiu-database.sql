@@ -26,7 +26,7 @@ CREATE TABLE `top_players` (
   `Country` varchar(12) CHARACTER SET utf8 DEFAULT NULL,
   `League` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
   `Club` varchar(29) CHARACTER SET utf8 DEFAULT NULL,
-  `Player_Names` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
+  `Player_Name` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
   `Matches_Played` int(11) DEFAULT NULL,
   `Substitution` int(11) DEFAULT NULL,
   `Mins` int(11) DEFAULT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `top_players` (
 -- `top_players` INSERTS
 --
 
-INSERT INTO `top_players` (`id`, `Country`, `League`, `Club`, `Player_Names`, `Matches_Played`, `Substitution`, `Mins`, `Goals`, `xG`, `xG_Per_Avg_Match`, `Shots`, `OnTarget`, `Shots_Per_Avg_Match`, `On_Target_Per_Avg_Match`, `Year`) VALUES
+INSERT INTO `top_players` (`id`, `Country`, `League`, `Club`, `Player_Name`, `Matches_Played`, `Substitution`, `Mins`, `Goals`, `xG`, `xG_Per_Avg_Match`, `Shots`, `OnTarget`, `Shots_Per_Avg_Match`, `On_Target_Per_Avg_Match`, `Year`) VALUES
 (1, 'Spain', 'La Liga', '(BET)', 'Juanmi Callejon', 19, 16, 1849, 11, '6.62', '0.34', 48, 20, '2.47', '1.03', 2016),
 (2, 'Spain', 'La Liga', '(BAR)', 'Antoine Griezmann', 36, 0, 3129, 16, '11.86', '0.36', 88, 41, '2.67', '1.24', 2016),
 (3, 'Spain', 'La Liga', '(ATL)', 'Luis Suarez', 34, 1, 2940, 28, '23.21', '0.75', 120, 57, '3.88', '1.84', 2016),
@@ -459,7 +459,7 @@ INSERT INTO `top_players` (`id`, `Country`, `League`, `Club`, `Player_Names`, `M
 (412, 'Germany', 'Bundesliga', '(DOR)', 'Erling Haaland', 11, 4, 1116, 12, '7.64', '0.65', 34, 19, '2.89', '1.62', 2019),
 (413, 'Germany', 'Bundesliga', '(BSC)', 'Jhon Cordoba', 23, 6, 2108, 13, '8.88', '0.40', 61, 25, '2.75', '1.13', 2019),
 (414, 'Germany', 'Bundesliga', '(MON)', 'Kevin Volland', 24, 3, 2159, 10, '11.59', '0.51', 78, 32, '3.43', '1.41', 2019);
-INSERT INTO `top_players` (`id`, `Country`, `League`, `Club`, `Player_Names`, `Matches_Played`, `Substitution`, `Mins`, `Goals`, `xG`, `xG_Per_Avg_Match`, `Shots`, `OnTarget`, `Shots_Per_Avg_Match`, `On_Target_Per_Avg_Match`, `Year`) VALUES
+INSERT INTO `top_players` (`id`, `Country`, `League`, `Club`, `Player_Name`, `Matches_Played`, `Substitution`, `Mins`, `Goals`, `xG`, `xG_Per_Avg_Match`, `Shots`, `OnTarget`, `Shots_Per_Avg_Match`, `On_Target_Per_Avg_Match`, `Year`) VALUES
 (415, 'Germany', 'Bundesliga', '(SCF)', 'Nils Petersen', 24, 10, 2595, 11, '8.47', '0.31', 55, 19, '2.01', '0.70', 2019),
 (416, 'Germany', 'Bundesliga', '(BMG)', 'Lars Stindl', 14, 11, 1518, 9, '7.19', '0.45', 33, 15, '2.07', '0.94', 2019),
 (417, 'Germany', 'Bundesliga', '(MAI)', 'Robin Quaison', 31, 1, 2718, 13, '12.02', '0.42', 71, 28, '2.48', '0.98', 2019),
