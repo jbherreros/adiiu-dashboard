@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
       limit = document.getElementById("limit-select").value;
       year = document.getElementById("year-select").value;
       firstChartCall(year, limit);
+      seconddChartCall(year);
     });
 
   firstChartCall(2016, 10);
+  seconddChartCall(2016);
 });

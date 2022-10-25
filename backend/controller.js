@@ -18,6 +18,21 @@ function firstChartCall(year,limit) {
     });
 }
 
+function seconddChartCall(year){
+  let url = "./backend/goalsPerLeague.php?year=" + year;
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => {
+      let leagues = [];
+      let goals = [];
+      for(let i = 0; i < json.length; i++){
+        leagues.push(json[i].League);
+        goals.push(parseInt(json[i].Total_Goals));
+      }
+      createChartGoalsPerLeague(leagues,goals,year);
+    });
+}
+
 // Not implemented yet
 function secondChartCall() {
   let url = "./backend/...";

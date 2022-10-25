@@ -126,3 +126,94 @@ function openFilter() {
     isFilterOpened = false;
   }
 }
+
+function createChartGoalsPerLeague(leagues,goals,year){
+  Highcharts.chart('container2', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45
+        }
+    },
+    title: {
+        text: 'Goals per league',
+        align: "center",
+    },
+    subtitle: {
+        text: 'Year ' + year,
+        align: "center",
+    },
+    plotOptions: {
+        pie: {
+            innerSize: 100,
+            depth: 45
+        }
+    },
+    series: [
+      {
+        name: 'Total number of Goals',
+        data: [
+          [leagues[0],goals[0]],
+          [leagues[1],goals[1]],
+          [leagues[2],goals[2]],
+          [leagues[3],goals[3]],
+          [leagues[4],goals[4]],
+          [leagues[5],goals[5]],
+          [leagues[7],goals[7]],
+          [leagues[8],goals[8]],
+        ]
+      }
+    ]
+});
+}
+
+/*function createChartRaro(goals,year,name1,name2){
+  Highcharts.chart('container', {
+    chart: {
+        type: 'area'
+    },
+    title: {
+        text: 'Goals per year of '+ name1 +'and'+ name2
+    },
+    subtitle: {
+        text: 'Okey',
+        align: 'right',
+        verticalAlign: 'bottom'
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        x: 150,
+        y: 60,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+    },
+    yAxis: {
+        title: {
+            text: 'Goals'
+        }
+    },
+    plotOptions: {
+        series: {
+            pointStart: year[0]
+        },
+        area: {
+            fillOpacity: 0.5
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: name1,
+        data: goals[0]
+    }, {
+        name: name2,
+        data: goals[1]
+    }]
+});
+}*/
