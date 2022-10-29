@@ -1,6 +1,14 @@
 /* In this js file all the charts are defined for their creation */
 
-function createFirstChart(names, goals, shots, year) {
+function createFirstChart(data, year) {
+  let shots=[], goals=[], names=[];
+
+  for (let i = 0; i < data.length; i++) {
+    names.push(data[i].Player_Name);
+    goals.push(parseInt(data[i].Goals));
+    shots.push(parseInt(data[i].Shots));
+  }
+
   Highcharts.chart("container", {
     chart: {
       zoomType: "xy",

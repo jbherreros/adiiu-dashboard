@@ -8,8 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("change", function (e) {
       limit = document.getElementById("limit-select").value;
       year = document.getElementById("year-select").value;
-      firstChartCall(year, limit);
+      renderFirstChart(year, limit);
     });
 
-  firstChartCall(2016, 10);
+    // Render charts functions
+    function renderFirstChart(year, limit){
+      let data = getBestScores(year, limit).then((data) => {
+        createFirstChart(data, year);
+      });
+    }
+
+    // Calling the render functions for the default charts, on page load
+    renderFirstChart(2019, 10);
 });
