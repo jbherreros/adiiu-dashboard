@@ -33,6 +33,23 @@ function seconddChartCall(year){
     });
 }
 
+function thirdChartCall(name){
+  let url = "./backend/matchesAndGoalsPerYear.php?name=" + name;
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => {
+      let matches = [];
+      let goals = [];
+      let years = [];
+      for(let i = 0; i < json.length; i++){
+        matches.push(parseInt(json[i].Matches_Played));
+        goals.push(parseInt(json[i].Goals));
+        years.push(parseInt(json[i].Year));
+      }
+      createThirdChart(matches,goals,years,name);
+    });
+}
+
 // Not implemented yet
 function secondChartCall() {
   let url = "./backend/...";

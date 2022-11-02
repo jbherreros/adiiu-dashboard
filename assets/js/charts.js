@@ -164,20 +164,47 @@ function createChartGoalsPerLeague(leagues,goals,year){
           [leagues[8],goals[8]],
         ]
       }
-    ]
+    ],exporting: {
+      buttons: [
+        {
+          text: "",
+          symbol: "url(./assets/img/gear.svg)",
+          symbolX: 19.5,
+          symbolY: 18.5,
+          titleKey: "settings",
+          onclick: function () {
+            openFilter();
+          },
+          theme: {
+            "stroke-width": 1,
+            stroke: "transparent",
+            r: 5,
+            states: {
+              hover: {
+                fill: "#7cb6ec",
+              },
+              select: {
+                stroke: "#039",
+                fill: "#a4edba",
+              },
+            },
+          },
+        },
+      ],
+    },
 });
 }
 
-/*function createChartRaro(goals,year,name1,name2){
-  Highcharts.chart('container', {
+function createThirdChart(matches,goals,years,name){
+  Highcharts.chart('container3', {
     chart: {
         type: 'area'
     },
     title: {
-        text: 'Goals per year of '+ name1 +'and'+ name2
+        text: 'Matches And Goals Per Year By '+ name
     },
     subtitle: {
-        text: 'Okey',
+        text: name,
         align: 'right',
         verticalAlign: 'bottom'
     },
@@ -192,14 +219,9 @@ function createChartGoalsPerLeague(leagues,goals,year){
         backgroundColor:
             Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
     },
-    yAxis: {
-        title: {
-            text: 'Goals'
-        }
-    },
     plotOptions: {
         series: {
-            pointStart: year[0]
+            pointStart: years[0]
         },
         area: {
             fillOpacity: 0.5
@@ -209,11 +231,36 @@ function createChartGoalsPerLeague(leagues,goals,year){
         enabled: false
     },
     series: [{
-        name: name1,
-        data: goals[0]
+        name: 'Matches',
+        data: matches
     }, {
-        name: name2,
-        data: goals[1]
-    }]
-});
-}*/
+        name: 'Goals',
+        data: goals
+    }],
+    exporting: {
+      buttons: [
+        {
+          text: "",
+          symbol: "url(./assets/img/gear.svg)",
+          symbolX: 19.5,
+          symbolY: 18.5,
+          titleKey: "settings",
+          theme: {
+            "stroke-width": 1,
+            stroke: "transparent",
+            r: 5,
+            states: {
+              hover: {
+                fill: "#7cb6ec",
+              },
+              select: {
+                stroke: "#039",
+                fill: "#a4edba",
+              },
+            },
+          },
+        },
+      ],
+    },
+  });
+}

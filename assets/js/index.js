@@ -14,4 +14,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   firstChartCall(2016, 10);
   seconddChartCall(2016);
+  thirdChartCall('Lionel Messi');
 });
