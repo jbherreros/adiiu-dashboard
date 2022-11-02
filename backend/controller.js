@@ -20,16 +20,17 @@ function firstChartCall(year,limit) {
 
 function secondChartCall(year){
   let url = "./backend/goalsPerLeague.php?year=" + year;
+  let array = [];
   fetch(url)
     .then((response) => response.json())
     .then((json) => {
-      let leagues = [];
-      let goals = [];
       for(let i = 0; i < json.length; i++){
-        leagues.push(json[i].League);
-        goals.push(parseInt(json[i].Total_Goals));
+        let arr = [];
+        arr.push(json[i].League);
+        arr.push(parseInt(json[i].Total_Goals));
+        array.push(arr)
       }
-      createChartGoalsPerLeague(leagues,goals,year);
+      createChartGoalsPerLeague(year,array);
     });
 }
 

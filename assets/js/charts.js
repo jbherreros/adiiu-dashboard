@@ -128,7 +128,7 @@ function openFilter() {
   }
 }
 
-function createChartGoalsPerLeague(leagues,goals,year){
+function createChartGoalsPerLeague(year,array){
   Highcharts.chart('container2', {
     chart: {
         type: 'pie',
@@ -154,16 +154,7 @@ function createChartGoalsPerLeague(leagues,goals,year){
     series: [
       {
         name: 'Total number of Goals',
-        data: [
-          [leagues[0],goals[0]],
-          [leagues[1],goals[1]],
-          [leagues[2],goals[2]],
-          [leagues[3],goals[3]],
-          [leagues[4],goals[4]],
-          [leagues[5],goals[5]],
-          [leagues[7],goals[7]],
-          [leagues[8],goals[8]],
-        ]
+        data: array
       }
     ],exporting: {
       buttons: [
