@@ -33,3 +33,9 @@ header nav{
     border: #ced4da !important;
     width: 50px;
 }
+
+#xd{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}

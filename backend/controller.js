@@ -18,7 +18,7 @@ function firstChartCall(year,limit) {
     });
 }
 
-function seconddChartCall(year){
+function secondChartCall(year){
   let url = "./backend/goalsPerLeague.php?year=" + year;
   fetch(url)
     .then((response) => response.json())
@@ -51,7 +51,7 @@ function thirdChartCall(name){
 }
 
 // Not implemented yet
-function secondChartCall() {
+function seconddChartCall() {
   let url = "./backend/...";
   fetch(url)
     .then((response) => response.json())

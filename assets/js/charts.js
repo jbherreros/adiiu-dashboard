@@ -81,6 +81,7 @@ function createFirstChart(names, goals, shots, year) {
     exporting: {
       buttons: [
         {
+          name: "boton1",
           text: "",
           symbol: "url(./assets/img/gear.svg)",
           symbolX: 19.5,
@@ -167,6 +168,7 @@ function createChartGoalsPerLeague(leagues,goals,year){
     ],exporting: {
       buttons: [
         {
+          name: "boton2",
           text: "",
           symbol: "url(./assets/img/gear.svg)",
           symbolX: 19.5,
@@ -240,6 +242,7 @@ function createThirdChart(matches,goals,years,name){
     exporting: {
       buttons: [
         {
+          name: "boton3",
           text: "",
           symbol: "url(./assets/img/gear.svg)",
           symbolX: 19.5,
