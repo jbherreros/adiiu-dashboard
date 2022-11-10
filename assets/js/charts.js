@@ -81,6 +81,7 @@ function createFirstChart(names, goals, shots, year) {
     exporting: {
       buttons: [
         {
+          id:"b1",
           name: "boton1",
           text: "",
           symbol: "url(./assets/img/gear.svg)",

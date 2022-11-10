@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   
   // To change the chart's year for the first chart
   document
-    .getElementById("filter-items")
+    .getElementById("goalsPerLeague")
     .addEventListener("change", function (e) {
       limit = document.getElementById("limit-select").value;
       year = document.getElementById("year-select").value;
@@ -48,4 +48,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   firstChartCall(2016, 10);
   secondChartCall(2016);
   thirdChartCall('Lionel Messi');
+  /*callApi();*/
 });
+
+

@@ -60,3 +60,22 @@ function seconddChartCall() {
       createSecondChart();
     });
 }
+/*function callApi(){
+  //Creamos un nuevo XMLHttpRequest
+var xhttp = new XMLHttpRequest();
+
+// Esta es la función que se ejecutará al finalizar la llamada
+xhttp.onreadystatechange = function() {
+  // Si nada da error
+  if (this.readyState == 4 && this.status == 200) {
+    // La respuesta, aunque sea JSON, viene en formato texto, por lo que tendremos que hace run parse
+    console.log(JSON.parse(this.responseText));
+  }
+};
+
+// Endpoint de la API y método que se va a usar para llamar
+xhttp.open("GET", "apiv3.apifootball.com/?action=get_players&APIkey=$18c70144b47b2e7f827fbb0ee839a5a52fe3954dedc2489d9b358d91b7283055", true);
+xhttp.setRequestHeader("Content-type", "application/json");
+// Si quisieramos mandar parámetros a nuestra API, podríamos hacerlo desde el método send()
+xhttp.send(null);
+}*/
