@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
+    <link rel="shortcut icon" href="assets/img/logo.png" />
     <!-- Own CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
     <!-- Own JS -->
@@ -18,11 +19,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">   
     <!-- Highcharts-->
     <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 </head>
 
   <header>
+    <!-- NAVBAR -->
     <nav class="navbar navbar-dark navbar-expand-md bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand">Dashboard</a>
@@ -44,45 +48,64 @@
           </div>
         </div>
     </nav>
-
-    
-    <div id="filter">
+ 
+    <!-- FILTER SETTINGS -->
+    <div id="filter" class="d-flex justify-content-center">
       <div id="filter-items">
-        <div class="d-flex justify-content-center"> <!-- offset-6 col-6 d-flex-->
+        <div id="filter-items-chart-1"> <!-- first chart -->
+            <label class="label-form">Year: </label>
+            <select name="year" class="form-select form-select-sm" id="year-select-1">
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+            </select>
+            <label class="label-form" for="quantity">Total: </label>
+            <input class="form-control-sm" type="number" id="limit-select" value="10" min="1" max="30">
+        </div>
+          <div id="filter-items-chart-2"> <!-- second chart -->
           <label class="label-form">Year: </label>
-          <select name="year" class="form-select form-select-sm" id="year-select">
+          <select name="year" class="form-select form-select-sm" id="year-select-2">
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
             <option value="2019">2019</option>
             <option value="2020">2020</option>
           </select>
-          <label class="label-form" for="quantity">Total: </label>
-        <input class="form-control-sm" type="number" id="limit-select" value="10" min="1" max="30">
         </div>
+        <div id="filter-items-chart-3"> <!-- third chart -->
+          <label class="label-form">Player: </label>
+          <select name="year" class="form-select form-select-sm" id="player-select">
+            <!-- selection options are added with JS at index.js -->
+          </select>
+        </div> 
       </div>
     </div>
   </header>
+
   <body>
+    <!-- CHARTS -->
+    <div class="row mx-1 my-4 mb-2">
+        <div class="col-md-6">
+            <div id="container"></div>
+        </div>
+
+        <div class="col-md-6">
+            <div id="container2"></div>
+        </div>
+    </div>
+
     <div class="row mx-1 my-4">
         <div class="col-md-6">
-            <div id="container" class="graphic"></div>
-        </div>
-
-        <div class="col-md-6">
-            <div id="container2" class="graphic"></div>
-        </div>
-        <div class="row mx-1 my-4">
-            <div class="col-md-6">
-            <div id="container3" class="graphic"></div>
-        </div>
+            <div id="container3"></div>
         </div>
         
-
-        <!--<figure class="highcharts-figure">
-            <div id="container3"></div>
-        </figure>-->
+        <div class="col-md-6">
+          <div id="container4"></div>
+        </div>
     </div>
-  </body>
+  </div>
+</body>
   
 </html>

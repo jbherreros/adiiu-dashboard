@@ -4,7 +4,6 @@ header nav{
     z-index: 1;
 }
 
-
 /* Filter style */
 #filter{
     position: relative;
@@ -18,7 +17,7 @@ header nav{
     position: relative;
     justify-content: center;
     transform: translateY(-37px);/* Should be 0 */
-    padding-top: 3px;
+    padding: 3px;
     transition: all .2s ease-in-out;
     display: flex;
 }
@@ -26,7 +25,11 @@ header nav{
 #filter #filter-items label{
     margin: 5px;
     margin-right: 5px;
-    margin-left: 15px;
+    margin-left: 15px;;
+}
+
+#filter-items-chart-1, #filter-items-chart-2, #filter-items-chart-3{
+    display: none;
 }
 
 .form-control-sm{
