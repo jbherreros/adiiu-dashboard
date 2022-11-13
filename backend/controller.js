@@ -1,65 +1,39 @@
 /* In this js file all the endpoints are called and the output data is passed through 
 the chart functions to be displayed */
-
-function firstChartCall(year,limit) {
+async function getBestScores(year,limit) {
   let url = "./backend/bestScorersPerYear.php?year=" + year+"&limit="+limit;
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-      let names= [], goals = [], shots = [];
-    
-      for (let i = 0; i < json.length; i++) {
-        names.push(json[i].Player_Name);
-        goals.push(parseInt(json[i].Goals));
-        shots.push(parseInt(json[i].Shots));
-      }
+  const response = await fetch(url);
 
-      createFirstChart(names, goals, shots ,year);
-    });
+  if(!response.ok) {
+    throw new Error("HTTP ERROR " + response.status);
+  }
+
+  return await response.json();
 }
 
-function secondChartCall(year){
+async function getGoalsPerLeague(year) {
   let url = "./backend/goalsPerLeague.php?year=" + year;
-  let array = [];
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-      for(let i = 0; i < json.length; i++){
-        let arr = [];
-        arr.push(json[i].League);
-        arr.push(parseInt(json[i].Total_Goals));
-        array.push(arr)
-      }
-      createChartGoalsPerLeague(year,array);
-    });
+  const response = await fetch(url);
+
+  if(!response.ok) {
+    throw new Error("HTTP ERROR " + response.status);
+  }
+
+  return await response.json();
 }
 
-function thirdChartCall(name){
+
+async function getMatchesAndGoalsPerYear(name) {
   let url = "./backend/matchesAndGoalsPerYear.php?name=" + name;
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-      let matches = [];
-      let goals = [];
-      let years = [];
-      for(let i = 0; i < json.length; i++){
-        matches.push(parseInt(json[i].Matches_Played));
-        goals.push(parseInt(json[i].Goals));
-        years.push(parseInt(json[i].Year));
-      }
-      createThirdChart(matches,goals,years,name);
-    });
+  const response = await fetch(url);
+
+  if(!response.ok) {
+    throw new Error("HTTP ERROR " + response.status);
+  }
+
+  return await response.json();
 }
 
-// Not implemented yet
-function seconddChartCall() {
-  let url = "./backend/...";
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-      createSecondChart();
-    });
-}
 /*function callApi(){
   //Creamos un nuevo XMLHttpRequest
 var xhttp = new XMLHttpRequest();

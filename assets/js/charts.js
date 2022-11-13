@@ -1,6 +1,14 @@
 /* In this js file all the charts are defined for their creation */
 
-function createFirstChart(names, goals, shots, year) {
+function createFirstChart(data, year) {
+  let shots=[], goals=[], names=[];
+
+  for (let i = 0; i < data.length; i++) {
+    names.push(data[i].Player_Name);
+    goals.push(parseInt(data[i].Goals));
+    shots.push(parseInt(data[i].Shots));
+  }
+
   Highcharts.chart("container", {
     chart: {
       zoomType: "xy",
@@ -81,8 +89,6 @@ function createFirstChart(names, goals, shots, year) {
     exporting: {
       buttons: [
         {
-          id:"b1",
-          name: "boton1",
           text: "",
           symbol: "url(./assets/img/gear.svg)",
           symbolX: 19.5,
@@ -111,6 +117,7 @@ function createFirstChart(names, goals, shots, year) {
   });
 }
 
+
 // To handle the filter button, that displays the settings for the chart
 var isFilterOpened = false;
 function openFilter() {
@@ -129,7 +136,14 @@ function openFilter() {
   }
 }
 
-function createChartGoalsPerLeague(year,array){
+function createChartGoalsPerLeague(data,year){
+  let array = [];
+  for(let i = 0; i < data.length; i++){
+    let arr = [];
+    arr.push(data[i].League);
+    arr.push(parseInt(data[i].Total_Goals));
+    array.push(arr);
+  }
   Highcharts.chart('container2', {
     chart: {
         type: 'pie',
@@ -189,7 +203,15 @@ function createChartGoalsPerLeague(year,array){
 });
 }
 
-function createThirdChart(matches,goals,years,name){
+function createThirdChart(data,name){
+  let matches = [];
+  let goals = [];
+  let years = [];
+  for(let i = 0; i < data.length; i++){
+    matches.push(parseInt(data[i].Matches_Played));
+    goals.push(parseInt(data[i].Goals));
+    years.push(parseInt(data[i].Year));
+  }
   Highcharts.chart('container3', {
     chart: {
         type: 'area'

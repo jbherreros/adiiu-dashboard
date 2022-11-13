@@ -1,7 +1,6 @@
 /* In this js file all the interactions with the DOM are defined
  and also the default charts are created */
 
-document.addEventListener("DOMContentLoaded", function (e) {
   /*let btn = e.currentTarget;
   let value = btn.name;
   console.log(value);
@@ -36,19 +35,39 @@ document.addEventListener("DOMContentLoaded", function (e) {
   }*/
   
   // To change the chart's year for the first chart
-  document
-    .getElementById("goalsPerLeague")
-    .addEventListener("change", function (e) {
-      limit = document.getElementById("limit-select").value;
-      year = document.getElementById("year-select").value;
-      firstChartCall(year, limit);
-      secondChartCall(year);
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    // To change the chart's year for the first chart
+    document
+      .getElementById("filter-items")
+      .addEventListener("change", function (e) {
+        limit = document.getElementById("limit-select").value;
+        year = document.getElementById("year-select").value;
+        renderFirstChart(year, limit);
+        renderSecondChart(year);
+        renderThirdChart();
+      });
 
-  firstChartCall(2016, 10);
-  secondChartCall(2016);
-  thirdChartCall('Lionel Messi');
+    // Render charts functions
+    function renderFirstChart(year, limit){
+      let data = getBestScores(year, limit).then((data) => {
+        createFirstChart(data, year);
+      });
+    }
+    function renderSecondChart(year){
+      let data = getGoalsPerLeague(year).then((data)=>{
+        createChartGoalsPerLeague(data,year);
+      });
+    }
+    function renderThirdChart(name){
+      let data = getMatchesAndGoalsPerYear(name).then((data)=>{
+        createThirdChart(data,name);
+      });
+    }
+
+    // Calling the render functions for the default charts, on page load
+    renderFirstChart(2019, 10);
+    renderSecondChart(2016);
+    renderThirdChart('Lionel Messi');
+
   /*callApi();*/
 });
-
-
