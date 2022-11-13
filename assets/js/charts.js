@@ -117,6 +117,7 @@ function createFirstChart(data, year) {
   });
 }
 
+
 // To handle the filter button, that displays the settings for the chart
 var isFilterOpened = false;
 function openFilter() {
@@ -133,4 +134,150 @@ function openFilter() {
     filterItems.style.transform = "translate(0px, -39px)";
     isFilterOpened = false;
   }
+}
+
+function createChartGoalsPerLeague(data,year){
+  let array = [];
+  for(let i = 0; i < data.length; i++){
+    let arr = [];
+    arr.push(data[i].League);
+    arr.push(parseInt(data[i].Total_Goals));
+    array.push(arr);
+  }
+  Highcharts.chart('container2', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45
+        }
+    },
+    title: {
+        text: 'Goals per league',
+        align: "center",
+    },
+    subtitle: {
+        text: 'Year ' + year,
+        align: "center",
+    },
+    plotOptions: {
+        pie: {
+            innerSize: 100,
+            depth: 45
+        }
+    },
+    series: [
+      {
+        name: 'Total number of Goals',
+        data: array
+      }
+    ],exporting: {
+      buttons: [
+        {
+          name: "boton2",
+          text: "",
+          symbol: "url(./assets/img/gear.svg)",
+          symbolX: 19.5,
+          symbolY: 18.5,
+          titleKey: "settings",
+          onclick: function () {
+            openFilter();
+          },
+          theme: {
+            "stroke-width": 1,
+            stroke: "transparent",
+            r: 5,
+            states: {
+              hover: {
+                fill: "#7cb6ec",
+              },
+              select: {
+                stroke: "#039",
+                fill: "#a4edba",
+              },
+            },
+          },
+        },
+      ],
+    },
+});
+}
+
+function createThirdChart(data,name){
+  let matches = [];
+  let goals = [];
+  let years = [];
+  for(let i = 0; i < data.length; i++){
+    matches.push(parseInt(data[i].Matches_Played));
+    goals.push(parseInt(data[i].Goals));
+    years.push(parseInt(data[i].Year));
+  }
+  Highcharts.chart('container3', {
+    chart: {
+        type: 'area'
+    },
+    title: {
+        text: 'Matches And Goals Per Year By '+ name
+    },
+    subtitle: {
+        text: name,
+        align: 'right',
+        verticalAlign: 'bottom'
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        x: 150,
+        y: 60,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+    },
+    plotOptions: {
+        series: {
+            pointStart: years[0]
+        },
+        area: {
+            fillOpacity: 0.5
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Matches',
+        data: matches
+    }, {
+        name: 'Goals',
+        data: goals
+    }],
+    exporting: {
+      buttons: [
+        {
+          name: "boton3",
+          text: "",
+          symbol: "url(./assets/img/gear.svg)",
+          symbolX: 19.5,
+          symbolY: 18.5,
+          titleKey: "settings",
+          theme: {
+            "stroke-width": 1,
+            stroke: "transparent",
+            r: 5,
+            states: {
+              hover: {
+                fill: "#7cb6ec",
+              },
+              select: {
+                stroke: "#039",
+                fill: "#a4edba",
+              },
+            },
+          },
+        },
+      ],
+    },
+  });
 }
