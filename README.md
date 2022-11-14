@@ -10,14 +10,16 @@ Now you can visualize the webpage at http://localhost/adiiu-dashboard/.
 
 ## Code
 
-Backend is allocated at its own folder, where you will find all the endpoints in the different php files and a js file named controller.js, where all the endpoint calls are codified. 
+Backend is allocated at its own folder, where you will find all the endpoints in the different php files and a js file named controller.js, where all the endpoint calls are codified. Those endpoints extract the data from the database and convert it into JSON format, that will be passed as parameter to create the charts.
 
 For the frontend, there is only one HTML file called index.html where the web structure is created, one stylesheet named styles.css and two JS files: 
 
-    - index.js: where we define all the interactions with the DOM
+    - index.js: where we define all the interactions with the DOM and initialize the charts
     - charts.js: where all chart functions are defined for its creation at index.js
 
 A filter settings menu has been implemented to change the data that is displayed on the charts. You can find it at charts.js from line 421.
+
+The web app design is fully responsive thanks to using Bootstrap v5.2. Highchart credits have been removed for design purposes. 
 
 ## License 
 

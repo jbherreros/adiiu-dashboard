@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("filter-items-chart-3")
     .addEventListener("change", function (e) {
       player = document.getElementById("player-select").value;
-      console.log(player)
       openFilter(3); // to close the filter
       goBack(); // goes down to the chart's position
       renderThirdChart(player);
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // This is for setting the third chart player selection
   let data = getAllPlayers().then((data) => {
-    console.log(data);
     for (let i = 0; i < data.length; i++) {
       let option = document.createElement("option");
       option.text = data[i].Player_Name;
@@ -61,10 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderFourthChart() {
-    let data = externalApiCall().then((data) => {
+    let data = externalApiCall().then((data) => { // the data displayed here comes from an external API
       let names = [];
       let ages = [];
       let vari;
+
+      // Arithmetic mean is calculated here
       for (let i = 0; i < data.length; i++) {
         let age = 0;
         for (let x = 0; x < data[i].players.length; x++) {
@@ -75,9 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
         vari = Number(vari.toFixed(2));
         ages[i] = vari;
       }
-      console.log(ages);
-      console.log(names);
-      createFourthChart(names, ages);
+
+      createFourthChart(names, ages); // names and age mean
     });
   }
 

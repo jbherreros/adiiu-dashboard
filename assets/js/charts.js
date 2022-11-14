@@ -24,7 +24,7 @@ function createFirstChart(data, year) {
       align: "center",
     },
     credits: {
-      enabled: false,
+      enabled: false, // disables the credits (highcharts.com)
     },
     xAxis: [
       {
@@ -99,7 +99,7 @@ function createFirstChart(data, year) {
       },
     ],
     exporting: {
-      buttons: [
+      buttons: [ // filter button
         {
           text: "",
           symbol: "url(./assets/img/gear.svg)",
@@ -172,7 +172,7 @@ function createSecondChart(data, year) {
       align: "center",
     },
     credits: {
-      enabled: false,
+      enabled: false, // disables the credits (highcharts.com)
     },
     plotOptions: {
       pie: {
@@ -192,7 +192,7 @@ function createSecondChart(data, year) {
       },
     ],
     exporting: {
-      buttons: [
+      buttons: [ // filter button
         {
           name: "boton2",
           text: "",
@@ -263,7 +263,7 @@ function createThirdChart(data, name) {
       area: {
         fillOpacity: 0.5,
         fillColor: {
-          pattern: {
+          pattern: { // pattern for accessibility purposes
             path: {
               d: "M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11",
               strokeWidth: 3,
@@ -294,14 +294,14 @@ function createThirdChart(data, name) {
       },
     },
     credits: {
-      enabled: false,
+      enabled: false, // disables the credits (highcharts.com)
     },
     series: [
       {
         name: "Matches",
         data: matches,
         fillColor: {
-          pattern: {
+          pattern: { // pattern for accesibility purposes
             path: { d: "M 0 1.5 L 2.5 1.5 L 2.5 0 M 2.5 5 L 2.5 3.5 L 5 3.5" },
             color: Highcharts.getOptions().colors[0],
           },
@@ -318,7 +318,7 @@ function createThirdChart(data, name) {
       },
     ],
     exporting: {
-      buttons: [
+      buttons: [ // filter button
         {
           name: "boton3",
           text: "",
@@ -364,7 +364,7 @@ function createFourthChart(names, ages) {
       type: "packedbubble",
     },
     legend: {
-      enabled: false,
+      enabled: false, // disables de legend
     },
     title: {
       text: "Arithemtic mean from ages of every team",
@@ -377,7 +377,7 @@ function createFourthChart(names, ages) {
       enabled: false,
     },
     credits: {
-      enabled: false,
+      enabled: false, // disables the credits (highcharts.com)
     },
     tooltip: {
       useHTML: true,
