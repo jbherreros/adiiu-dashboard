@@ -1,6 +1,6 @@
 # Football Analytics Dashboard
 
-This dashboard is a web application made with the Highcharts JavaScript library and PHP for the connection with the database (MySQL). It shows stats from different players and years. The data has been collected from kaggle (https://www.kaggle.com/datasets/mohamedhanyyy/top-football-leagues-scorers), although it also uses an external API (https://apifootball.com/) for one of the charts. 
+This dashboard is a web application made with the Highcharts JavaScript library and PHP for the connection with the database (MySQL). It shows stats from different players and years. The data has been collected from kaggle (https://www.kaggle.com/datasets/mohamedhanyyy/top-football-leagues-scorers), although it also uses an external API for one of the charts (https://apifootball.com/).
 
 ## Installation
 
@@ -17,7 +17,7 @@ For the frontend, there is only one HTML file called index.html where the web st
     - index.js: where we define all the interactions with the DOM
     - charts.js: where all chart functions are defined for its creation at index.js
 
-A filter settings menu has been implemented to change the data that is displayed on the charts. You can find it at charts.js at line 421.
+A filter settings menu has been implemented to change the data that is displayed on the charts. You can find it at charts.js from line 421.
 
 ## License 
 
