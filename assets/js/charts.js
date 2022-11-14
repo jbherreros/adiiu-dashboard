@@ -28,11 +28,11 @@ function createFirstChart(data, year) {
     },
     xAxis: [
       {
-        labels:{
-          style:{
-            color: '#000000',
-            fontWeight: 'bold',
-          }  
+        labels: {
+          style: {
+            color: "#000000",
+            fontWeight: "bold",
+          },
         },
         categories: names,
         crosshair: true,
@@ -44,13 +44,13 @@ function createFirstChart(data, year) {
         labels: {
           format: "{value}",
           style: {
-            color: '#000000',
+            color: "#000000",
           },
         },
         title: {
           text: "Goals",
           style: {
-            color: '#000000',
+            color: "#000000",
           },
         },
       },
@@ -59,13 +59,13 @@ function createFirstChart(data, year) {
         title: {
           text: "Shots",
           style: {
-            color: '#000000',
+            color: "#000000",
           },
         },
         labels: {
           format: "{value}",
           style: {
-            color: '#000000',
+            color: "#000000",
           },
         },
         opposite: true,
@@ -131,20 +131,22 @@ function createFirstChart(data, year) {
 
 function createSecondChart(data, year) {
   let array = [];
-  Highcharts.getOptions().plotOptions.pie.colors = (
-    function () {
-       var colors = [];
-       var base = Highcharts.getOptions().colors[0];
-       var i;
- 
-       for (i = 0; i < 10; i += 1) {
-          // Start out with a darkened base color (negative brighten), and end
-          // up with a much brighter color
-          colors.push(Highcharts.Color(base).brighten((i - 3) / 9).get());
-       }
-       return colors;
-    }()
- );
+  Highcharts.getOptions().plotOptions.pie.colors = (function () {
+    var colors = [];
+    var base = Highcharts.getOptions().colors[0];
+    var i;
+
+    for (i = 0; i < 10; i += 1) {
+      // Start out with a darkened base color (negative brighten), and end
+      // up with a much brighter color
+      colors.push(
+        Highcharts.Color(base)
+          .brighten((i - 3) / 9)
+          .get()
+      );
+    }
+    return colors;
+  })();
 
   for (let i = 0; i < data.length; i++) {
     let arr = [];
@@ -176,18 +178,17 @@ function createSecondChart(data, year) {
       pie: {
         innerSize: 100,
         depth: 45,
-        borderColor: '#000000',
+        borderColor: "#000000",
         dataLabels: {
           enabled: true,
-          format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-        }
+          format: "<b>{point.name}</b><br>{point.percentage:.1f} %",
+        },
       },
     },
     series: [
       {
         name: "Total number of Goals",
         data: array,
-        
       },
     ],
     exporting: {
@@ -264,33 +265,33 @@ function createThirdChart(data, name) {
         fillColor: {
           pattern: {
             path: {
-              d: 'M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11',
-              strokeWidth: 3
+              d: "M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11",
+              strokeWidth: 3,
             },
             width: 10,
             height: 10,
-          }
-        }
+          },
+        },
       },
     },
-    yAxis:{
-      labels:{
-        style:{
-          color:'#000000'
-        }
+    yAxis: {
+      labels: {
+        style: {
+          color: "#000000",
+        },
       },
-      title:{
-        style:{
-          color:'#000000'
-        }
-      }
+      title: {
+        style: {
+          color: "#000000",
+        },
+      },
     },
-    xAxis:{
-      labels:{
-        style:{
-          color:'#000000'
-        }
-      }
+    xAxis: {
+      labels: {
+        style: {
+          color: "#000000",
+        },
+      },
     },
     credits: {
       enabled: false,
@@ -301,19 +302,19 @@ function createThirdChart(data, name) {
         data: matches,
         fillColor: {
           pattern: {
-          path:{d: 'M 0 1.5 L 2.5 1.5 L 2.5 0 M 2.5 5 L 2.5 3.5 L 5 3.5'},
-            color: Highcharts.getOptions().colors[0]
-          }
-        }
+            path: { d: "M 0 1.5 L 2.5 1.5 L 2.5 0 M 2.5 5 L 2.5 3.5 L 5 3.5" },
+            color: Highcharts.getOptions().colors[0],
+          },
+        },
       },
       {
         name: "Goals",
         data: goals,
         fillColor: {
           pattern: {
-            color: Highcharts.getOptions().colors[1]
-          }
-        }
+            color: Highcharts.getOptions().colors[1],
+          },
+        },
       },
     ],
     exporting: {
@@ -350,18 +351,20 @@ function createThirdChart(data, name) {
 
 function createFourthChart(names, ages) {
   let array = [];
+
   for (let i = 0; i < names.length; i++) {
     let arr = [];
     arr.push(names[i]);
     arr.push(ages[i]);
     array.push(arr);
   }
+
   Highcharts.chart("container4", {
     chart: {
       type: "packedbubble",
     },
-    legend: { 
-      enabled:false
+    legend: {
+      enabled: false,
     },
     title: {
       text: "Arithemtic mean from ages of every team",
@@ -369,6 +372,9 @@ function createFourthChart(names, ages) {
     subtitle: {
       text: "Liga Santander",
       align: "center",
+    },
+    exporting: {
+      enabled: false,
     },
     credits: {
       enabled: false,
@@ -420,7 +426,7 @@ async function openFilter(number) {
   let filterItems = document.getElementById("filter-items");
 
   if (!isFilterOpened) {
-    if (number == 3) goUp();
+    if (number == 3) goUp(); // Goes up to the top of the page to see the filter
 
     filterOpened = number;
     document.getElementById("filter-items-chart-" + number).style.display =

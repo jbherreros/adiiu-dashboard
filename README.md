@@ -17,9 +17,11 @@ For the frontend, there is only one HTML file called index.html where the web st
     - index.js: where we define all the interactions with the DOM
     - charts.js: where all chart functions are defined for its creation at index.js
 
+A filter settings menu has been implemented to change the data that is displayed on the charts. You can find it at charts.js at line 421.
+
 ## License 
 
-This license lets others remix, adapt, and build upon your work non-commercially, and although their new works must also acknowledge you and be non-commercial, they don’t have to license their derivative works on the same terms.
+This license lets others remix, adapt, and build upon your work non-commercially, and although their new works must also acknowledge you and be non-commercial, they do not have to license their derivative works on the same terms.
 
 [![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/)
 
