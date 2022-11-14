@@ -1,8 +1,10 @@
 <?php
 include "connection.php";
+
 $name = $_GET['name'];
+
 header('Content-Type: application/json');
-$query = "SELECT Matches_Played, Year, Goals FROM top_players WHERE Player_Name ='Lionel Messi'";
+$query = "SELECT Matches_Played, Year, Goals FROM top_players WHERE Player_Name ='".$name."'";
 $res = mysqli_query($con,$query);
 $rows = array();
 while($row = mysqli_fetch_assoc($res)) {

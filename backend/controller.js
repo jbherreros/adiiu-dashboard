@@ -23,7 +23,6 @@ async function getGoalsPerLeague(year) {
   return await response.json();
 }
 
-
 async function getMatchesAndGoalsPerYear(name) {
   let url = "./backend/matchesAndGoalsPerYear.php?name=" + name;
   const response = await fetch(url);

@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard</title>
+    <title>Football Dashboard</title>
     <link rel="shortcut icon" href="assets/img/logo.png" />
     <!-- Own CSS -->
     <link rel="stylesheet" href="./assets/css/styles.css">
@@ -20,6 +20,7 @@
     <!-- Highcharts-->
     <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
     <script src="http://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
@@ -29,7 +30,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-dark navbar-expand-md bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand">Dashboard</a>
+          <a class="navbar-brand">Football Dashboard</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,6 +41,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://www.kaggle.com/datasets/mohamedhanyyy/top-football-leagues-scorers">Data Source</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://apifootball.com/">External API</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://github.com/jbherreros/adiiu-dashboard">GitHub</a>
@@ -89,23 +93,42 @@
     <div class="row mx-1 my-4 mb-2">
         <div class="col-md-6">
             <div id="container"></div>
+            <p><i>
+              In this bar chart you can see the top scorers of the selected year and also the relation between 
+              the goals and the shots by player. This demonstrates that normally, as more attemps a player
+              has, more goals he scores by the end of the season. 
+            </i></p>
         </div>
 
         <div class="col-md-6">
             <div id="container2"></div>
+            <p><i>
+              The doughnut chart shows us the total amount of goals scored in the most important leagues by 
+              season. As we can see, there is not much difference between them all, although the Serie A, 
+              La Liga and Premier League are always the most scored leagues. 
+            </i></p>
         </div>
     </div>
 
     <div class="row mx-1 my-4">
         <div class="col-md-6">
             <div id="container3"></div>
+            <p><i>
+              The above area chart presents the player's performance year by year. Please note that only players
+              with four or more seasons competed are available for displaying and data for 2020 is not complete,
+              therefore the number of goals and matches are lower than the other years. 
+            </i></p>
         </div>
         
         <div class="col-md-6">
           <div id="container4"></div>
+          <p><i>
+            The data from this bubble chart is collected from an external API and sometimes may not work properly.
+            The bubbles represent the age arithmetic mean of each La Liga team. Every bubble has more or less the
+            same size, as a result of very similar means between all the teams, comprised from 24 to 27 years old.
+          </i></p>
         </div>
     </div>
   </div>
-</body>
-  
+</body> 
 </html>

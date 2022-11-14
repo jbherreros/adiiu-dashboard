@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("filter-items-chart-3")
     .addEventListener("change", function (e) {
       player = document.getElementById("player-select").value;
+      console.log(player)
       openFilter(3); // to close the filter
       goBack(); // goes down to the chart's position
       renderThirdChart(player);
@@ -83,6 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Calling the render functions for the default charts, on page load
   renderFirstChart(2019, 10);
   renderSecondChart(2016);
-  renderThirdChart("Lionel Messi");
+  renderThirdChart("Iago Aspas");
   renderFourthChart();
 });

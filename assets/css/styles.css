@@ -4,6 +4,12 @@ header nav{
     z-index: 1;
 }
 
+p{
+    margin: 20px;
+    padding-top: 10px;
+    text-align: justify;
+}
+
 /* Filter style */
 #filter{
     position: relative;
