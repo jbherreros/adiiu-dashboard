@@ -21,6 +21,10 @@ A filter settings menu has been implemented to change the data that is displayed
 
 The web app design is fully responsive thanks to using Bootstrap v5.2. Highchart credits have been removed for design purposes. 
 
+## Video explanation
+
+https://drive.google.com/file/d/1YsdJdI28akWPSXchKIgYwzOmDuujXCsy/view?usp=share_link
+
 ## License 
 
 This license lets others remix, adapt, and build upon your work non-commercially, and although their new works must also acknowledge you and be non-commercial, they do not have to license their derivative works on the same terms.
